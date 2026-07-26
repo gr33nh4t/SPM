@@ -1,0 +1,7 @@
+{
+	"sl": {
+		"version": "5.02",
+		"repo": "https://github.com/mtoyoda/sl.git",
+		"desc": "Steam Locomotive running cross your terminal screen"
+	},
+	
