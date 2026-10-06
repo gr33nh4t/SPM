@@ -22,9 +22,8 @@ spm_query(){
 	# taking info from JSON file 
 	local pkg_name="$1"
 	local details=$(grep -A 3 "\"$pkg_name\"" "$JSON_FILE")
-	# Make every thing before version: a group and catch after it only, to avoid beginner indenation
-	local version=$(grep "version" <<< "$details" | sed -E 's/[^0-9]+//g') #take only the numbers of the version???
-	local desc=$(grep "desc" <<< "$details" | sed  's/(*"desc": ")//; s/"//')
+	local version=$(grep "version" <<< "$details" | sed -E 's/[^0-9]+//g')
+	local desc=$(grep "desc" <<< "$details" | sed -E 's/.*:([^*]+)/\1/')
 
 	# Displaying the details
 	printf "[-] %s - %s | %s\n" "$pkg_name" "$version" "$desc"
