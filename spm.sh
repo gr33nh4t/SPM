@@ -26,7 +26,11 @@ spm_query(){
 	local desc=$(grep "desc" <<< "$details" | sed -E 's/.*:([^*]+)/\1/')
 
 	# Displaying the details
-	printf "[-] %s - %s | %s\n" "$pkg_name" "$version" "$desc"
+	# If it doesn't exist
+	if [ -z "$details"]; then
+		printf "No such a package"
+	else
+		print "[-] %s - %s | %s\n" "$pkg_name "$verstion" "$desc"
 }
 
 	
@@ -48,7 +52,7 @@ case "$1" in
 		spm_remove "$2"
 		;;
 	*)
-		echo "USE: spm (install\i) or (query\q) or (remove\delete\r\d)"
+		echo "USE: spm (install|i) or (query|q) or (remove|delete|r|d)"
 		;;
 	esac	
 	
