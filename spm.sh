@@ -28,9 +28,9 @@ spm_query(){
 	# Displaying the details
 	# If it doesn't exist
 	if [ -z "$details" ]; then
-		printf "No such a package"
+		printf "No such a package\n"
 	else
-		print "[-] %s - %s | %s\n" "$pkg_name "$verstion" "$desc"
+		printf "[-] %s - %s | %s\n" "$pkg_name" "$version" "$desc"
 	fi
 }
 
